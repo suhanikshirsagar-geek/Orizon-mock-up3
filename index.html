@@ -79,8 +79,8 @@
   .h-h1 .l1{display:block;font-size:clamp(24px,2.6vw,42px);color:#fff;letter-spacing:-.01em}
   .h-h1 .l2{display:block;font-size:clamp(24px,2.6vw,42px);letter-spacing:-.01em;background:linear-gradient(90deg,#1E2F96,#1AA7EC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   .h-h1 .l3{display:block;font-family:var(--ft);font-size:clamp(20px,2.1vw,34px);color:var(--pear);-webkit-text-fill-color:var(--pear);letter-spacing:.01em}
-  .h-sub{font-size:14px;color:rgba(255,255,255,.55);margin:18px 0 8px;max-width:420px;line-height:1.75}
-  .h-body{font-size:13px;color:rgba(255,255,255,.35);max-width:420px;line-height:1.75;margin-bottom:28px}
+  .h-sub{font-size:14px;color:rgba(255,255,255,1);margin:18px 0 8px;max-width:420px;line-height:1.75}
+  .h-body{font-size:13px;color:rgba(255,255,255,1);max-width:420px;line-height:1.75;margin-bottom:28px}
   .h-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
   .btn-outline{padding:11px 24px;border-radius:4px;border:1.5px solid var(--cyan);color:var(--cyan);font-weight:500;font-size:13px;cursor:pointer;background:transparent}
   .btn-outline:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,167,236,.2)}
@@ -117,7 +117,7 @@
   .mq-wrap::after{right:0;background:linear-gradient(to left,var(--surf),transparent)}
   .mq-track{display:flex;gap:64px;align-items:center;animation:mq 26s linear infinite;width:max-content}
   @keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-  .mq-logo{height:22px;filter:brightness(0) invert(1);opacity:.28;flex-shrink:0;transition:opacity .3s}
+  .mq-logo{height:22px;opacity:1;flex-shrink:0;transition:opacity .3s}
   .mq-logo:hover{opacity:.7}
 
   /* ══ ENGINES ══════════════════════════════ */
@@ -140,13 +140,13 @@
   .ep-div.on{transform:scaleY(1)}
 
   /* ══ STATS ════════════════════════════════ */
-  #stats{padding:100px 40px;background:var(--blue);position:relative;overflow:hidden;background-image:var(--chain)}
+  #stats{padding:100px 40px;background:var(--pear);position:relative;overflow:hidden;background-image:var(--chain)}
   #sc{position:absolute;inset:0;pointer-events:none;opacity:.3}
   .st-row{position:relative;z-index:1;display:flex;justify-content:center;align-items:center;max-width:900px;margin:0 auto}
   .st{text-align:center;padding:0 64px;flex:1}
-  .st-n{font-family:var(--fh);font-size:clamp(52px,6vw,88px);color:#fff;line-height:1;margin-bottom:8px}
-  .st-l{font-size:11px;font-weight:500;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.15em;margin-bottom:8px}
-  .st-bar{width:36px;height:3px;background:var(--pear);margin:0 auto}
+  .st-n{font-family:var(--fh);font-size:clamp(52px,6vw,88px);color:#000000;line-height:1;margin-bottom:8px}
+  .st-l{font-size:11px;font-weight:500;color:rgba(0, 0, 0, 0.71);text-transform:uppercase;letter-spacing:.15em;margin-bottom:8px}
+  .st-bar{width:36px;height:3px;background:var(--cyan);margin:0 auto}
   .st-sep{width:1px;height:48px;background:rgba(255,255,255,.12);flex-shrink:0;align-self:center}
 
   /* ══ RANGES ═══════════════════════════════ */
@@ -162,7 +162,7 @@
   .rc.lic{background:linear-gradient(145deg,rgba(26,167,236,.07) 0%,var(--card) 55%);border:1px solid rgba(26,167,236,.18);border-top:3px solid var(--cyan)}
   .rc.lic:hover{box-shadow:0 18px 50px rgba(26,167,236,.2)}
   .rc-badge{display:inline-block;font-family:var(--fh);font-size:8px;text-transform:uppercase;letter-spacing:.08em;border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.28);padding:3px 9px;border-radius:2px;margin-bottom:14px}
-  .rc-badge.bl{border-color:var(--cyan);color:var(--cyan);border:1px solid}
+  .rc-badge.bl{border-color:var(--cyan);color:var(--cyan);}
   .rc h3{font-family:var(--fh);font-size:clamp(16px,1.6vw,22px);text-transform:uppercase;margin-bottom:12px}
   .rc h3.bl{color:var(--cyan)}
   .rc p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:16px}
@@ -345,21 +345,18 @@
   <div class="strip-lbl" aria-hidden="true">Trusted by</div>
   <div class="mq-wrap">
     <div class="mq-track">
-      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Sony.png" alt="Sony">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Sony.png" alt="Sony" style="filter:brightness(0) invert(1);">
       <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Xbox.png" alt="Xbox">
       <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Nintendo.png" alt="Nintendo">
       <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/SEGA.png" alt="SEGA">
-      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Dragonshock.png" alt="DragonShock">
       <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/CLD-Distribution.png" alt="CLD Distribution">
-      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/E-SQUAD.png" alt="E-Squad">
       <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Collectible-Vault.png" alt="Collectible Vault">
-      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Sony.png" alt="" aria-hidden="true">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Sony.png" alt="" aria-hidden="true" style="filter:brightness(0) invert(1);">
       <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Xbox.png" alt="" aria-hidden="true">
       <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Nintendo.png" alt="" aria-hidden="true">
       <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/SEGA.png" alt="" aria-hidden="true">
-      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Dragonshock.png" alt="" aria-hidden="true">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Dragonshock.png" alt="" aria-hidden="true" style="filter:brightness(0) invert(1);">
       <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/CLD-Distribution.png" alt="" aria-hidden="true">
-      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/E-SQUAD.png" alt="" aria-hidden="true">
       <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Collectible-Vault.png" alt="" aria-hidden="true">
     </div>
   </div>
@@ -415,7 +412,7 @@
 <!-- ══ STATS ══════════════════════════════ -->
 <section id="stats">
   <canvas id="sc" aria-hidden="true"></canvas>
-  <div class="pear-tag fade-up" style="justify-content:center;margin-bottom:6px">Proven execution at scale</div>
+  <div class="pear-tag fade-up" style="justify-content:center;margin-bottom:6px;color:var(--blue)">Proven execution at scale</div>
   <div class="st-row">
     <div class="st fade-up"><div class="st-n" data-t="50" data-s="+">0+</div><div class="st-l">Countries Active</div><div class="st-bar"></div></div>
     <div class="st-sep"></div>
