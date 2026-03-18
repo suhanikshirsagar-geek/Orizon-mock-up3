@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orizon – Gaming brands. Partner programs. Built to scale.</title>
+  <meta name="description" content="Orizon develops and scales gaming accessory brands through distribution and retail partnerships across Europe and international markets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto:wght@300;400;500;700&family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+  /* ══ TOKENS ══════════════════════════════ */
+  :root{
+    --blue:#1E2F96; --cyan:#1AA7EC; --pear:#C2E812;
+    --black:#08080D; --surf:#0D0D14; --card:#12121C;
+    --bd:rgba(255,255,255,.07); --mu:rgba(255,255,255,.5);
+    --fh:'Audiowide',sans-serif; --fb:'Roboto',sans-serif; --ft:'Pacifico',cursive;
+    --chain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect x='8' y='18' width='24' height='14' rx='7' fill='none' stroke='rgba(255,255,255,0.045)' stroke-width='1.5'/%3E%3Crect x='28' y='28' width='24' height='14' rx='7' fill='none' stroke='rgba(255,255,255,0.045)' stroke-width='1.5'/%3E%3C/svg%3E");
+  }
+
+  /* ══ RESET ═══════════════════════════════ */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--fb);background:var(--black);color:#fff;overflow-x:hidden;line-height:1.6}
+  a{text-decoration:none;color:inherit;transition:all .2s}
+  button{border:none;background:none;cursor:pointer;font-family:inherit;transition:all .2s}
+  img{display:block;max-width:100%}
+  ul{list-style:none}
+  ::-webkit-scrollbar{width:5px}
+  ::-webkit-scrollbar-track{background:var(--black)}
+  ::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
+  :focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+  /* ══ UTILS ════════════════════════════════ */
+  .grad{background:linear-gradient(90deg,#1E2F96,#1AA7EC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .pear-tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--fh);font-size:10px;color:var(--pear);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}
+  .pear-tag::before{content:'■';font-size:7px}
+  .arrow-lnk{font-weight:500;font-size:13px;color:var(--cyan);display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid transparent;transition:gap .2s,border-color .2s}
+  .arrow-lnk:hover{gap:10px;border-color:var(--cyan)}
+  .btn-pear{background:var(--pear);color:var(--black);font-weight:700;font-size:14px;padding:12px 32px;border-radius:4px;cursor:pointer;display:inline-block;transition:transform .2s,box-shadow .2s}
+  .btn-pear:hover{transform:scale(1.03);box-shadow:0 8px 28px rgba(194,232,18,.35)}
+  .fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .fade-up.in{opacity:1;transform:none}
+
+  /* ══ PRELOADER ════════════════════════════ */
+  #loader{position:fixed;inset:0;z-index:9999;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:transform .75s cubic-bezier(.76,0,.24,1)}
+  #loader.gone{transform:translateY(-100vh);pointer-events:none}
+  #l-logo{height:40px;opacity:0;transition:opacity .4s}
+  #l-logo.show{opacity:1}
+  .l-bar{width:200px;height:2px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
+  .l-fill{height:100%;width:0;background:var(--cyan)}
+  .l-pct{font-family:var(--fh);font-size:10px;color:rgba(255,255,255,.3);text-align:center;margin-top:8px;letter-spacing:.1em}
+
+  /* ══ NAV ══════════════════════════════════ */
+  #nav{position:fixed;top:0;left:0;right:0;height:64px;z-index:1000;display:flex;align-items:center;padding:0 48px;transform:translateY(-100%);transition:transform .5s,background .3s,border-color .3s;border-bottom:1px solid transparent}
+  #nav.show{transform:none}
+  #nav.stuck{background:rgba(8,8,13,.94);backdrop-filter:blur(16px);border-bottom-color:rgba(255,255,255,.05)}
+  .n-logo img{height:24px}
+  .n-links{display:flex;gap:24px;margin-left:44px}
+  .n-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,.45)}
+  .n-links a:hover{color:#fff}
+  .n-r{margin-left:auto;display:flex;gap:10px;align-items:center}
+  .n-ghost{font-size:12px;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:3px}
+  .n-ghost:hover{border-color:rgba(255,255,255,.35);color:#fff}
+  .n-pear{font-family:var(--fh);font-size:11px;background:var(--pear);color:var(--black);padding:7px 16px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+  .n-pear:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(194,232,18,.3)}
+
+  /* ══ HERO ═════════════════════════════════ */
+  #hero{
+    position:relative;height:100vh;min-height:600px;
+    display:grid;grid-template-columns:1fr 1fr;
+    align-items:center;overflow:hidden;
+    background:var(--black);background-image:var(--chain);
+  }
+  /* hero needs to clear the fixed nav */
+  .h-copy{padding:0 40px 0 72px;position:relative;z-index:2;padding-top:0}
+  .h-h1{font-family:var(--fh);text-transform:uppercase;line-height:1.08;margin-bottom:4px}
+  .h-h1 .l1{display:block;font-size:clamp(24px,2.6vw,42px);color:#fff;letter-spacing:-.01em}
+  .h-h1 .l2{display:block;font-size:clamp(24px,2.6vw,42px);letter-spacing:-.01em;background:linear-gradient(90deg,#1E2F96,#1AA7EC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .h-h1 .l3{display:block;font-family:var(--ft);font-size:clamp(20px,2.1vw,34px);color:var(--pear);-webkit-text-fill-color:var(--pear);letter-spacing:.01em}
+  .h-sub{font-size:14px;color:rgba(255,255,255,.55);margin:18px 0 8px;max-width:420px;line-height:1.75}
+  .h-body{font-size:13px;color:rgba(255,255,255,.35);max-width:420px;line-height:1.75;margin-bottom:28px}
+  .h-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+  .btn-outline{padding:11px 24px;border-radius:4px;border:1.5px solid var(--cyan);color:var(--cyan);font-weight:500;font-size:13px;cursor:pointer;background:transparent}
+  .btn-outline:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,167,236,.2)}
+  .btn-solid{padding:11px 24px;border-radius:4px;background:var(--pear);color:var(--black);font-weight:700;font-size:13px;cursor:pointer}
+  .btn-solid:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(194,232,18,.32)}
+  .h-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .h-tag{font-family:var(--fh);font-size:8px;text-transform:uppercase;letter-spacing:.08em;border:1px solid rgba(26,167,236,.55);color:var(--pear);padding:4px 10px;border-radius:2px}
+  /* 3D canvas column — must be explicit 100vh so offsetHeight is never 0 */
+  .h-canvas-col{position:relative;height:100vh;align-self:stretch}
+  #hero-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  /* Atmospheric glow behind 3D canvas */
+  #hero-glow{
+    position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(ellipse 75% 70% at 50% 50%,
+      rgba(26,167,236,.35) 0%,
+      rgba(30,47,150,.22) 38%,
+      rgba(194,232,18,.08) 62%,
+      transparent 75%);
+    animation:heroGlowPulse 3.5s ease-in-out infinite;
+  }
+  @keyframes heroGlowPulse{0%,100%{opacity:.65}50%{opacity:1}}
+  /* scroll hint */
+  .h-scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;opacity:.35;z-index:3;pointer-events:none}
+  .h-scroll span{font-size:8px;letter-spacing:.3em;text-transform:uppercase}
+  .h-scroll svg{color:var(--cyan);animation:scrollBounce 1.6s ease-in-out infinite}
+  @keyframes scrollBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+  /* ══ LOGO STRIP ═══════════════════════════ */
+  #strip{height:88px;background:var(--surf);display:flex;align-items:center;overflow:hidden;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+  .strip-lbl{font-family:var(--fh);font-size:8px;color:var(--pear);letter-spacing:.25em;text-transform:uppercase;white-space:nowrap;padding:0 32px;flex-shrink:0}
+  .mq-wrap{flex:1;overflow:hidden;position:relative}
+  .mq-wrap::before,.mq-wrap::after{content:'';position:absolute;top:0;bottom:0;width:50px;z-index:1}
+  .mq-wrap::before{left:0;background:linear-gradient(to right,var(--surf),transparent)}
+  .mq-wrap::after{right:0;background:linear-gradient(to left,var(--surf),transparent)}
+  .mq-track{display:flex;gap:64px;align-items:center;animation:mq 26s linear infinite;width:max-content}
+  @keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .mq-logo{height:22px;filter:brightness(0) invert(1);opacity:.28;flex-shrink:0;transition:opacity .3s}
+  .mq-logo:hover{opacity:.7}
+
+  /* ══ ENGINES ══════════════════════════════ */
+  #engines{background:var(--black)}
+  .eng-intro{text-align:center;padding:90px 80px 64px;max-width:640px;margin:0 auto}
+  .eng-intro h2{font-family:var(--fh);font-size:clamp(26px,2.8vw,40px);text-transform:uppercase;margin-bottom:14px}
+  .eng-intro p{font-size:15px;color:var(--mu);line-height:1.75}
+  .eng-panels{display:grid;grid-template-columns:1fr 1fr;height:88vh;position:relative;min-height:500px}
+  .ep{display:flex;align-items:center;padding:64px 56px;position:relative;overflow:hidden;transition:filter .3s}
+  .ep:hover{filter:brightness(1.06)}
+  .ep.left{background:var(--surf);background-image:var(--chain)}
+  .ep.right{background:linear-gradient(135deg,#1E2F96 0%,#08080D 65%)}
+  .ep-acc{position:absolute;top:0;left:0;width:36px;height:36px;border-top:2px solid var(--cyan);border-left:2px solid var(--cyan)}
+  .ep h3{font-family:var(--fh);font-size:clamp(22px,2.2vw,34px);text-transform:uppercase;line-height:1.1;margin-bottom:18px}
+  .ep h3.blue{color:var(--cyan)}
+  .ep-bul{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+  .ep-bul li{font-size:13px;color:rgba(255,255,255,.55);display:flex;gap:9px}
+  .ep-bul li::before{content:'→';color:var(--cyan);flex-shrink:0}
+  .ep-div{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--cyan) 25%,var(--cyan) 75%,transparent);z-index:5;transform:scaleY(0);transform-origin:center;transition:transform 1.1s ease}
+  .ep-div.on{transform:scaleY(1)}
+
+  /* ══ STATS ════════════════════════════════ */
+  #stats{padding:100px 40px;background:var(--blue);position:relative;overflow:hidden;background-image:var(--chain)}
+  #sc{position:absolute;inset:0;pointer-events:none;opacity:.3}
+  .st-row{position:relative;z-index:1;display:flex;justify-content:center;align-items:center;max-width:900px;margin:0 auto}
+  .st{text-align:center;padding:0 64px;flex:1}
+  .st-n{font-family:var(--fh);font-size:clamp(52px,6vw,88px);color:#fff;line-height:1;margin-bottom:8px}
+  .st-l{font-size:11px;font-weight:500;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.15em;margin-bottom:8px}
+  .st-bar{width:36px;height:3px;background:var(--pear);margin:0 auto}
+  .st-sep{width:1px;height:48px;background:rgba(255,255,255,.12);flex-shrink:0;align-self:center}
+
+  /* ══ RANGES ═══════════════════════════════ */
+  #ranges{padding:100px 72px;background:var(--black);background-image:var(--chain);display:flex;flex-direction:column;align-items:center}
+  .rg-hd{text-align:center;max-width:600px;margin-bottom:48px}
+  .rg-hd h2{font-family:var(--fh);font-size:clamp(26px,2.8vw,40px);text-transform:uppercase;line-height:1.1;margin-bottom:14px}
+  .rg-hd p{font-size:14px;color:var(--mu);line-height:1.75}
+  .rg-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;max-width:1020px;margin-bottom:40px}
+  .rc{border-radius:12px;padding:40px 36px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+  .rc:hover{transform:translateY(-5px)}
+  .rc.core{background:var(--card);border:1px solid var(--bd);border-top:3px solid transparent;border-image:linear-gradient(90deg,#1E2F96,#1AA7EC) 1;border-image-slice:1}
+  .rc.core:hover{box-shadow:0 18px 50px rgba(30,47,150,.35)}
+  .rc.lic{background:linear-gradient(145deg,rgba(26,167,236,.07) 0%,var(--card) 55%);border:1px solid rgba(26,167,236,.18);border-top:3px solid var(--cyan)}
+  .rc.lic:hover{box-shadow:0 18px 50px rgba(26,167,236,.2)}
+  .rc-badge{display:inline-block;font-family:var(--fh);font-size:8px;text-transform:uppercase;letter-spacing:.08em;border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.28);padding:3px 9px;border-radius:2px;margin-bottom:14px}
+  .rc-badge.bl{border-color:var(--cyan);color:var(--cyan)}
+  .rc h3{font-family:var(--fh);font-size:clamp(16px,1.6vw,22px);text-transform:uppercase;margin-bottom:12px}
+  .rc h3.bl{color:var(--cyan)}
+  .rc p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:16px}
+  .rc-li li{font-size:12px;color:rgba(255,255,255,.5);display:flex;gap:7px;margin-bottom:7px}
+  .rc-li li::before{content:'→';color:var(--cyan);flex-shrink:0}
+
+  /* ══ PROCESS ══════════════════════════════ */
+  /* NOTE: no overflow:hidden here — GSAP pin creates a spacer div that must not be clipped */
+  #process{position:relative}
+  .pp-wrap{position:relative}
+  .pp-track{display:flex;width:400vw}
+  .pp-panel{width:100vw;height:100vh;min-height:500px;display:flex;align-items:center;padding:80px 96px;position:relative;background:var(--black);background-image:var(--chain);overflow:hidden}
+  .pp-bg-num{position:absolute;right:56px;bottom:32px;font-family:var(--fh);font-size:180px;color:rgba(255,255,255,.025);line-height:1;user-select:none;pointer-events:none}
+  .pp-c{max-width:500px;position:relative;z-index:1}
+  .pp-tag{font-family:var(--fh);font-size:9px;color:var(--cyan);text-transform:uppercase;letter-spacing:.2em;margin-bottom:12px}
+  .pp-title{font-family:var(--fh);font-size:clamp(28px,3vw,42px);text-transform:uppercase;margin-bottom:16px;line-height:1.1}
+  .pp-body{font-size:14px;color:rgba(255,255,255,.45);line-height:1.75}
+  .pp-svg{margin-top:32px}
+  .pp-prog{position:absolute;top:0;left:0;right:0;height:2px;background:rgba(255,255,255,.05);z-index:10}
+  .pp-prog-fill{height:100%;background:var(--cyan);width:0;transition:width .05s linear}
+  .pp-ctr{position:absolute;top:24px;right:96px;font-family:var(--fh);font-size:11px;color:rgba(255,255,255,.25);z-index:10}
+  .pp-ctr b{color:#fff}
+
+  /* ══ BRAND SECTIONS ══════════════════════ */
+  .brand-sec{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden}
+  #dragonshock{background:var(--black);background-image:var(--chain)}
+  #egogear{background:linear-gradient(160deg,#1E2F96 0%,#08080D 55%);background-image:var(--chain)}
+  .b-copy{position:relative;z-index:2;padding:72px 56px}
+  .b-img{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:48px 32px;min-height:500px}
+  .b-img img{width:88%;max-width:480px;filter:drop-shadow(0 0 56px rgba(26,167,236,.4));animation:bFloat 4.5s ease-in-out infinite}
+  .b-img img.wht{filter:drop-shadow(0 0 56px rgba(200,220,255,.2)) drop-shadow(0 16px 40px rgba(30,47,150,.4));animation-delay:.9s;animation-duration:5s}
+  @keyframes bFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+  .b-glow{position:absolute;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:0;filter:blur(70px)}
+  .b-glow.r{right:-80px;top:50%;transform:translateY(-50%);background:radial-gradient(circle,rgba(26,167,236,.14) 0%,transparent 70%)}
+  .b-glow.l{left:-80px;top:50%;transform:translateY(-50%);background:radial-gradient(circle,rgba(30,47,150,.22) 0%,transparent 70%)}
+  /* Stacked / floating image layout for brand sections */
+  .b-img-stack{position:relative}
+  .b-img-main{width:78%;max-width:420px;animation:bFloat 4.5s ease-in-out infinite;filter:drop-shadow(0 0 56px rgba(26,167,236,.38));position:relative;z-index:2}
+  .b-img-float{width:44%;max-width:220px;position:absolute;bottom:-20px;right:0;z-index:3;animation:bFloat 5.5s ease-in-out infinite .7s;opacity:.92}
+  .b-img-float-left{right:auto;left:0}
+  .b-logo{height:40px;margin-bottom:18px;object-fit:contain;object-position:left}
+  .b-h2{font-family:var(--fh);font-size:clamp(26px,2.8vw,42px);text-transform:uppercase;line-height:1.1;margin-bottom:14px}
+  .b-body{font-size:14px;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:20px;max-width:380px}
+  .b-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
+  .b-pill{font-family:var(--fh);font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);border:1px solid rgba(26,167,236,.55);padding:4px 11px;border-radius:2px}
+  /* ── Brand image tabs ── */
+  .b-slides{position:relative;width:100%;min-height:380px;display:flex;align-items:center;justify-content:center}
+  .b-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .55s ease;pointer-events:none}
+  .b-slide.active{opacity:1;pointer-events:auto;position:relative}
+  .b-slide img{width:88%;max-width:460px;filter:drop-shadow(0 0 56px rgba(26,167,236,.38));animation:bFloat 4.5s ease-in-out infinite}
+  #egogear .b-slide img{filter:drop-shadow(0 0 56px rgba(200,220,255,.18)) drop-shadow(0 16px 40px rgba(30,47,150,.4));animation-duration:5s}
+  .b-dots{display:flex;gap:9px;justify-content:center;margin-top:20px}
+  .b-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.18);border:none;cursor:pointer;padding:0;transition:background .3s,transform .3s}
+  #dragonshock .b-dot.active{background:#1AA7EC;transform:scale(1.4)}
+  #egogear    .b-dot.active{background:#C2E812;transform:scale(1.4)}
+
+  /* ══ CTA PEAR ═════════════════════════════ */
+  #cta{min-height:100vh;padding:100px 72px;background:var(--pear);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+  #cta::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect x='8' y='18' width='24' height='14' rx='7' fill='none' stroke='rgba(0,0,0,0.045)' stroke-width='1.5'/%3E%3Crect x='28' y='28' width='24' height='14' rx='7' fill='none' stroke='rgba(0,0,0,0.045)' stroke-width='1.5'/%3E%3C/svg%3E");pointer-events:none}
+  .cta-ey{font-family:var(--fh);font-size:9px;text-transform:uppercase;letter-spacing:.2em;color:rgba(0,0,0,.4);margin-bottom:18px;position:relative}
+  .cta-h2{font-family:var(--fh);font-size:clamp(28px,5vw,68px);text-transform:uppercase;color:var(--black);line-height:1.05;margin-bottom:52px;position:relative}
+  .cta-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;max-width:880px;margin-bottom:44px;position:relative}
+  .cta-card{background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.1);border-radius:10px;padding:26px 24px;text-align:left}
+  .cta-card h3{font-family:var(--fh);font-size:10px;text-transform:uppercase;color:var(--black);margin-bottom:9px;letter-spacing:.04em}
+  .cta-card p{font-size:12px;color:rgba(0,0,0,.55);line-height:1.65;margin-bottom:16px}
+  .cta-lnk{font-weight:500;font-size:12px;color:var(--black);display:inline-flex;align-items:center;gap:4px;transition:gap .2s}
+  .cta-lnk:hover{gap:8px;text-decoration:underline}
+  .btn-cta{font-family:var(--fh);font-size:clamp(13px,1.4vw,17px);text-transform:uppercase;letter-spacing:.04em;background:var(--black);color:var(--pear);padding:16px 52px;border-radius:4px;cursor:pointer;position:relative;transition:transform .2s,box-shadow .2s}
+  .btn-cta:hover{transform:scale(1.04);box-shadow:0 14px 36px rgba(0,0,0,.25)}
+
+  /* ══ FAQ ══════════════════════════════════ */
+  #faq{padding:100px 72px;background:var(--black)}
+  .fq-in{max-width:640px;margin:0 auto}
+  .fq-hd{margin-bottom:40px}
+  .fq-hd h2{font-family:var(--fh);font-size:clamp(24px,2.5vw,36px);text-transform:uppercase}
+  .fq-item{border-bottom:1px solid var(--bd)}
+  .fq-btn{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:14px;font-weight:500;color:#fff;text-align:left;gap:14px;background:none;border:none;cursor:pointer;font-family:var(--fb)}
+  .fq-icon{width:20px;height:20px;flex-shrink:0;font-size:18px;color:var(--cyan);transition:transform .3s;line-height:1}
+  .fq-item.open .fq-icon{transform:rotate(45deg)}
+  .fq-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .fq-item.open .fq-body{max-height:220px}
+  .fq-body p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.75;padding-bottom:20px}
+
+  /* ══ FOOTER ═══════════════════════════════ */
+  #footer{background:var(--surf);background-image:var(--chain);border-top:1px solid;border-image:linear-gradient(90deg,transparent,#1E2F96,#1AA7EC,transparent) 1}
+  .ft-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;padding:64px 72px 40px}
+  .ft-logo{height:24px;margin-bottom:16px}
+  .ft-about{font-size:12px;color:rgba(255,255,255,.35);line-height:1.75;max-width:210px;margin-bottom:12px}
+  .ft-email{font-size:13px;color:var(--cyan)}
+  .ft-email:hover{text-decoration:underline}
+  .ft-hd{font-family:var(--fh);font-size:8px;color:var(--pear);text-transform:uppercase;letter-spacing:.2em;margin-bottom:16px;display:flex;align-items:center;gap:5px}
+  .ft-hd::before{content:'■';font-size:6px}
+  .ft-links{display:flex;flex-direction:column;gap:9px}
+  .ft-links a{font-size:12px;color:rgba(255,255,255,.35)}
+  .ft-links a:hover{color:#fff}
+  .ft-btm{border-top:1px solid rgba(255,255,255,.04);padding:18px 72px;display:flex;justify-content:space-between;align-items:center}
+  .ft-copy{font-size:11px;color:rgba(255,255,255,.18)}
+  .ft-li{color:rgba(255,255,255,.3)}
+  .ft-li:hover{color:var(--cyan)}
+  </style>
+</head>
+<body>
+
+<!-- ══ PRELOADER ══════════════════════════ -->
+<div id="loader">
+  <img id="l-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Orizon_white_transparent.png" alt="Orizon">
+  <div>
+    <div class="l-bar"><div class="l-fill" id="l-fill"></div></div>
+    <div class="l-pct" id="l-pct">0%</div>
+  </div>
+</div>
+
+<!-- ══ NAV ════════════════════════════════ -->
+<header id="nav">
+  <a href="#hero" class="n-logo"><img src="https://orizon-hub.com/wp-content/uploads/2024/11/Orizon_white_transparent.png" alt="Orizon"></a>
+  <nav class="n-links" aria-label="Primary">
+    <a href="#engines">What we do</a>
+    <a href="#dragonshock">Brands</a>
+    <a href="#ranges">Ranges</a>
+    <a href="#engines">Partner Programs</a>
+    <a href="#footer">Press</a>
+    <a href="#footer">About</a>
+  </nav>
+  <div class="n-r">
+    <a href="#ranges" class="n-ghost">Request line-up</a>
+    <a href="#cta" class="n-pear">Let's Talk</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══ HERO ═══════════════════════════════ -->
+<section id="hero">
+  <!-- LEFT: copy (starts below nav) -->
+  <div class="h-copy fade-up" id="h-copy" style="padding-top:80px">
+    <div class="pear-tag">Built for durable shelf presence</div>
+    <h1 class="h-h1">
+      <span class="l1">Gaming Brands.</span>
+      <span class="l2">Partner Programs.</span>
+      <span class="l3">Built to Scale.</span>
+    </h1>
+    <p class="h-sub">Orizon develops and scales gaming accessory brands through distribution and retail partnerships—designed for durable shelf presence, not one-off drops.</p>
+    <p class="h-body">We do this through our own brands (DragonShock, EgoGear) and through partner programs for IP owners, bringing ranges to market across Europe and beyond.</p>
+    <div class="h-ctas">
+      <a href="#ranges" class="btn-outline">Explore Ranges</a>
+      <a href="#cta" class="btn-solid">Let's Talk</a>
+    </div>
+    <div class="h-tags">
+      <span class="h-tag">Core Ranges</span>
+      <span class="h-tag">Licensed Editions</span>
+      <span class="h-tag">Europe Specialist</span>
+      <span class="h-tag">Retail-Ready</span>
+      <span class="h-tag">Global Expansion</span>
+    </div>
+  </div>
+
+  <!-- RIGHT: Three.js 3D controller — image always visible underneath as depth layer -->
+  <div class="h-canvas-col">
+    <!-- Atmospheric glow behind canvas -->
+    <div id="hero-glow"></div>
+    <!-- Product image shown behind the 3D canvas as atmospheric backdrop -->
+    <img id="hero-img-bg"
+         src="https://orizon-hub.com/wp-content/uploads/2024/12/Orizon-Front-Picture-946x1024.png"
+         alt="Orizon DragonShock controller"
+         style="position:absolute;right:0;top:50%;transform:translateY(-50%);
+                width:80%;max-width:520px;z-index:1;
+                filter:drop-shadow(0 0 80px rgba(26,167,236,.5));
+                animation:bFloat 4s ease-in-out infinite;opacity:.15">
+    <canvas id="hero-canvas" aria-label="Interactive 3D gaming controller" style="position:relative;z-index:2"></canvas>
+  </div>
+
+  <div class="h-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l5 5 5-5"/></svg>
+  </div>
+</section>
+
+<!-- ══ LOGO STRIP ══════════════════════════ -->
+<div id="strip">
+  <div class="strip-lbl" aria-hidden="true">Trusted by</div>
+  <div class="mq-wrap">
+    <div class="mq-track">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Sony.png" alt="Sony">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Xbox.png" alt="Xbox">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Nintendo.png" alt="Nintendo">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/SEGA.png" alt="SEGA">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Dragonshock.png" alt="DragonShock">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/CLD-Distribution.png" alt="CLD Distribution">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/E-SQUAD.png" alt="E-Squad">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Collectible-Vault.png" alt="Collectible Vault">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Sony.png" alt="" aria-hidden="true">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Xbox.png" alt="" aria-hidden="true">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Nintendo.png" alt="" aria-hidden="true">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/SEGA.png" alt="" aria-hidden="true">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Dragonshock.png" alt="" aria-hidden="true">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/CLD-Distribution.png" alt="" aria-hidden="true">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/E-SQUAD.png" alt="" aria-hidden="true">
+      <img class="mq-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Collectible-Vault.png" alt="" aria-hidden="true">
+    </div>
+  </div>
+</div>
+
+<!-- ══ ENGINES ════════════════════════════ -->
+<section id="engines">
+  <div class="eng-intro fade-up">
+    <div class="pear-tag">What we do</div>
+    <h2>Two engines.<br>One retail mission.</h2>
+    <p>We combine brand building with retail execution—turning complete accessory ranges into scalable, repeatable retail programs.</p>
+  </div>
+  <div class="eng-panels">
+    <div class="ep left" id="ep-l" style="transform:translateX(-100%)">
+      <div class="ep-acc"></div>
+      <div>
+        <div class="pear-tag">Distribution & Retail Rollouts</div>
+        <h3>Europe + Beyond</h3>
+        <ul class="ep-bul">
+          <li>Pan-European distribution with 35+ retail and wholesale partners</li>
+          <li>Retail-ready packaging, compliance docs, and launch assets</li>
+          <li>Replenishment infrastructure for repeatable shelf performance</li>
+        </ul>
+        <a href="#cta" class="arrow-lnk">Discuss Distribution →</a>
+      </div>
+    </div>
+    <div class="ep-div" id="ep-div"></div>
+    <div class="ep right" id="ep-r" style="transform:translateX(100%)">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;width:100%">
+        <div>
+          <div class="pear-tag">Brand & Product Development</div>
+          <h3 class="blue">DragonShock / EgoGear</h3>
+          <ul class="ep-bul">
+            <li>Full range design from concept to shelf-ready packaging</li>
+            <li>Licensing partnerships with major IP owners—selective, not opportunistic</li>
+            <li>Two in-house brands as proof of concept at scale</li>
+          </ul>
+          <a href="#dragonshock" class="arrow-lnk">Discover Our Brands →</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+          <img src="https://orizon-hub.com/wp-content/uploads/2024/11/2-1.png"
+               alt="Orizon brand" loading="lazy"
+               style="width:100%;border-radius:8px;opacity:.85;object-fit:cover;max-height:160px">
+          <img src="https://orizon-hub.com/wp-content/uploads/2024/11/Design-sans-titre-11-866x1024.png"
+               alt="Orizon product design" loading="lazy"
+               style="width:60%;border-radius:6px;opacity:.7;object-fit:cover;max-height:100px">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══════════════════════════════ -->
+<section id="stats">
+  <canvas id="sc" aria-hidden="true"></canvas>
+  <div class="pear-tag fade-up" style="justify-content:center;margin-bottom:6px">Proven execution at scale</div>
+  <div class="st-row">
+    <div class="st fade-up"><div class="st-n" data-t="50" data-s="+">0+</div><div class="st-l">Countries Active</div><div class="st-bar"></div></div>
+    <div class="st-sep"></div>
+    <div class="st fade-up"><div class="st-n" data-t="35" data-s="+">0+</div><div class="st-l">Retail Partners</div><div class="st-bar"></div></div>
+    <div class="st-sep"></div>
+    <div class="st fade-up"><div class="st-n" data-t="240" data-s="k+">0k+</div><div class="st-l">Units Shipped</div><div class="st-bar"></div></div>
+  </div>
+</section>
+
+<!-- ══ RANGES ═════════════════════════════ -->
+<section id="ranges">
+  <div class="rg-hd fade-up">
+    <div class="pear-tag">What we bring to market</div>
+    <h2>Complete Ranges That Perform</h2>
+    <p>Core lines and official licensed editions—built for durable shelf presence and repeatable outcomes across Europe and international markets.</p>
+  </div>
+  <div class="rg-grid">
+    <article class="rc core fade-up">
+      <div class="rc-badge">Non-Licensed</div>
+      <h3>Core Accessory Ranges</h3>
+      <p>Built on strong fundamentals—ergonomics, durability, and retail price positioning. No license dependency.</p>
+      <ul class="rc-li"><li>Controllers, headsets, cables, and charging solutions</li><li>Multi-platform compatibility</li><li>Retail-grade packaging included</li></ul>
+      <img src="https://orizon-hub.com/wp-content/uploads/2025/02/Orizon-article-main-image-2.png"
+           alt="Orizon core accessory range" loading="lazy"
+           style="width:100%;border-radius:8px;margin-top:24px;opacity:.85;object-fit:cover;max-height:180px">
+    </article>
+    <article class="rc lic fade-up">
+      <div class="rc-badge bl">Selected</div>
+      <h3 class="bl">Official Licensed Editions</h3>
+      <p>Selective licensing with major IP owners. Every licensed edition complements the core range—never replaces it.</p>
+      <ul class="rc-li"><li>PlayStation, Xbox, Nintendo partner programs</li><li>Co-branded retail campaigns</li><li>Limited and seasonal collections</li></ul>
+      <img src="https://orizon-hub.com/wp-content/uploads/2024/11/Design-sans-titre-12-1024x644.png"
+           alt="Orizon licensed editions" loading="lazy"
+           style="width:100%;border-radius:8px;margin-top:24px;opacity:.85;object-fit:cover;max-height:180px">
+    </article>
+  </div>
+  <a href="#cta" class="btn-pear fade-up">Request the Line-Up</a>
+</section>
+
+<!-- ══ PROCESS ════════════════════════════ -->
+<section id="process">
+  <div class="pp-wrap" id="pp-wrap">
+    <div class="pp-prog"><div class="pp-prog-fill" id="pp-fill"></div></div>
+    <div class="pp-ctr"><b id="pp-cur">01</b> / 04</div>
+    <div class="pp-track" id="pp-track">
+
+      <div class="pp-panel"><div class="pp-bg-num" aria-hidden="true">01</div><div class="pp-c">
+        <div class="pp-tag">Step 01 / 04</div>
+        <h2 class="pp-title">Range Strategy</h2>
+        <p class="pp-body">Assortment design, pricing ladder, channel fit. We build the commercial architecture before a single unit is produced.</p>
+        <div class="pp-svg"><svg width="160" height="100" viewBox="0 0 160 100" fill="none" aria-hidden="true">
+          <rect x="4" y="4" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".9"/>
+          <rect x="40" y="4" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".65"/>
+          <rect x="76" y="4" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".4"/>
+          <rect x="112" y="4" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".18"/>
+          <rect x="4" y="40" width="28" height="28" rx="3" stroke="#C2E812" stroke-width="1.5" opacity=".9"/>
+          <rect x="40" y="40" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".6"/>
+          <rect x="76" y="40" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".35"/>
+          <rect x="112" y="40" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".15"/>
+          <rect x="4" y="76" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".3"/>
+          <rect x="40" y="76" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".2"/>
+          <rect x="76" y="76" width="28" height="28" rx="3" stroke="#C2E812" stroke-width="1.5" opacity=".55"/>
+          <rect x="112" y="76" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".1"/>
+        </svg></div>
+      </div></div>
+
+      <div class="pp-panel"><div class="pp-bg-num" aria-hidden="true">02</div><div class="pp-c">
+        <div class="pp-tag">Step 02 / 04</div>
+        <h2 class="pp-title">Product, Packaging & Compliance</h2>
+        <p class="pp-body">Design, sourcing, QA, retail-ready packaging. Every unit arrives shelf-ready with full compliance documentation.</p>
+        <div class="pp-svg"><svg width="160" height="100" viewBox="0 0 160 100" fill="none" aria-hidden="true">
+          <rect x="16" y="82" width="128" height="16" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".22"/>
+          <rect x="26" y="64" width="108" height="16" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".42"/>
+          <rect x="36" y="46" width="88" height="16" rx="3" stroke="#C2E812" stroke-width="1.5" opacity=".68"/>
+          <rect x="46" y="28" width="68" height="16" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".82"/>
+          <rect x="56" y="10" width="48" height="16" rx="3" fill="rgba(26,167,236,.1)" stroke="#1AA7EC" stroke-width="1.5"/>
+        </svg></div>
+      </div></div>
+
+      <div class="pp-panel"><div class="pp-bg-num" aria-hidden="true">03</div><div class="pp-c">
+        <div class="pp-tag">Step 03 / 04</div>
+        <h2 class="pp-title">Retail Rollout</h2>
+        <p class="pp-body">Distribution partners, key retailers, launch calendars and assets. We open the doors and make the launch land.</p>
+        <div class="pp-svg"><svg width="200" height="100" viewBox="0 0 200 100" fill="none" aria-hidden="true">
+          <circle cx="18" cy="50" r="4" fill="#1AA7EC" opacity=".8"/>
+          <circle cx="68" cy="22" r="4" fill="#C2E812" opacity=".8"/>
+          <circle cx="100" cy="64" r="6" fill="#1AA7EC"/>
+          <circle cx="148" cy="32" r="4" fill="#1AA7EC" opacity=".8"/>
+          <circle cx="186" cy="60" r="4" fill="#C2E812" opacity=".8"/>
+          <circle cx="50" cy="82" r="3" fill="#1AA7EC" opacity=".5"/>
+          <line x1="18" y1="50" x2="68" y2="22" stroke="#1AA7EC" stroke-width="1" stroke-dasharray="4 3" opacity=".32"/>
+          <line x1="68" y1="22" x2="100" y2="64" stroke="#1AA7EC" stroke-width="1" stroke-dasharray="4 3" opacity=".32"/>
+          <line x1="100" y1="64" x2="148" y2="32" stroke="#1AA7EC" stroke-width="1.5" opacity=".58"/>
+          <line x1="148" y1="32" x2="186" y2="60" stroke="#1AA7EC" stroke-width="1" stroke-dasharray="4 3" opacity=".32"/>
+          <line x1="18" y1="50" x2="50" y2="82" stroke="#1AA7EC" stroke-width="1" stroke-dasharray="4 3" opacity=".22"/>
+          <line x1="50" y1="82" x2="100" y2="64" stroke="#1AA7EC" stroke-width="1" stroke-dasharray="4 3" opacity=".22"/>
+        </svg></div>
+      </div></div>
+
+      <div class="pp-panel"><div class="pp-bg-num" aria-hidden="true">04</div><div class="pp-c">
+        <div class="pp-tag">Step 04 / 04</div>
+        <h2 class="pp-title">Always-On Execution</h2>
+        <p class="pp-body">Replenishment, promo planning, retail performance support. We stay in the game long after launch day.</p>
+        <div class="pp-svg"><svg width="120" height="120" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <circle cx="60" cy="60" r="42" stroke="rgba(255,255,255,.04)" stroke-width="10"/>
+          <path d="M60 18 A42 42 0 1 1 18 60" stroke="#1AA7EC" stroke-width="2.5" stroke-linecap="round" opacity=".9"/>
+          <path d="M18 60 A42 42 0 0 1 42 23" stroke="#C2E812" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
+          <polygon points="60,11 65,21 55,21" fill="#1AA7EC" opacity=".9"/>
+        </svg></div>
+      </div></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ DRAGONSHOCK ════════════════════════ -->
+<section id="dragonshock" class="brand-sec">
+  <div class="b-glow r" aria-hidden="true"></div>
+
+  <!-- LEFT: copy -->
+  <div class="b-copy fade-up">
+    <img class="b-logo" src="https://orizon-hub.com/wp-content/uploads/2025/02/DRAGON-SHOCK-LOGO-5-1024x313.png" alt="DragonShock" loading="lazy">
+    <div class="pear-tag">Bold Energy. Serious Performance.</div>
+    <h2 class="b-h2">Control Your Destiny</h2>
+    <p class="b-body">Accessories designed to stand out on shelf and deliver on the performance promise. DragonShock is Orizon's flagship brand—built from the ground up for the connected gaming generation.</p>
+    <div class="b-pills">
+      <span class="b-pill">Performance</span>
+      <span class="b-pill">Ergonomics</span>
+      <span class="b-pill">Design Impact</span>
+    </div>
+    <a href="#cta" class="arrow-lnk">Discover DragonShock →</a>
+  </div>
+
+  <!-- RIGHT: product image tabs -->
+  <div class="b-img">
+    <div>
+      <div class="b-slides" id="ds-slides">
+        <div class="b-slide active"><img src="Untitled (1).png" alt="DragonShock Aurora" loading="lazy"></div>
+        <div class="b-slide"><img src="Untitled (2).png" alt="DragonShock controller" loading="lazy"></div>
+        <div class="b-slide"><img src="Untitled.png" alt="DragonShock product" loading="lazy"></div>
+      </div>
+      <div class="b-dots" id="ds-dots">
+        <button class="b-dot active" data-idx="0" aria-label="Image 1"></button>
+        <button class="b-dot" data-idx="1" aria-label="Image 2"></button>
+        <button class="b-dot" data-idx="2" aria-label="Image 3"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EGOGEAR ════════════════════════════ -->
+<section id="egogear" class="brand-sec">
+  <div class="b-glow l" aria-hidden="true"></div>
+
+  <!-- LEFT: product image tabs -->
+  <div class="b-img">
+    <div>
+      <div class="b-slides" id="eg-slides">
+        <div class="b-slide active"><img src="https://orizon-hub.com/wp-content/uploads/2025/02/RGC02-PS2-BK-3D-03.png" alt="EgoGear PS2 controller" loading="lazy"></div>
+        <div class="b-slide"><img src="https://orizon-hub.com/wp-content/uploads/2025/02/RGB-Sound-Bar.jpg" alt="EgoGear range" loading="lazy"></div>
+        <div class="b-slide"><img src="https://orizon-hub.com/wp-content/uploads/2024/11/Design-sans-titre-12-1024x644.png" alt="EgoGear product" loading="lazy"></div>
+      </div>
+      <div class="b-dots" id="eg-dots">
+        <button class="b-dot active" data-idx="0" aria-label="Image 1"></button>
+        <button class="b-dot" data-idx="1" aria-label="Image 2"></button>
+        <button class="b-dot" data-idx="2" aria-label="Image 3"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: copy -->
+  <div class="b-copy fade-up">
+    <img class="b-logo" src="https://orizon-hub.com/wp-content/uploads/2025/02/EG-LOGO-V2.0%EF%BC%88BLACK%EF%BC%89-2-e1739544960916-1024x541.png" alt="EgoGear" loading="lazy" style="filter:brightness(0) invert(1);height:34px;">
+    <div class="pear-tag" style="margin-top:14px">Premium Feel. Accessible Price.</div>
+    <h2 class="b-h2">Be Proud of Your Skill</h2>
+    <p class="b-body">Gaming accessories built for everyday players who refuse to compromise. EgoGear delivers premium quality at accessible price points—multi-platform, multi-market, always shelf-ready.</p>
+    <div class="b-pills">
+      <span class="b-pill">Value</span>
+      <span class="b-pill">Durability</span>
+      <span class="b-pill">Multi-Platform</span>
+    </div>
+    <a href="#cta" class="arrow-lnk">Discover EgoGear →</a>
+  </div>
+</section>
+
+<!-- ══ CTA ════════════════════════════════ -->
+<section id="cta">
+  <div class="cta-ey">Built to launch. Built to replenish. Built to last.</div>
+  <h2 class="cta-h2">Let's Turn Ranges Into<br>Repeatable Retail Wins.</h2>
+  <div class="cta-cards">
+    <div class="cta-card"><h3>Retailers / Distributors</h3><p>Interested in stocking DragonShock, EgoGear, or our licensed range? Let's talk shelf space, margins, and launch support.</p><a href="mailto:hello@orizon-hub.com" class="cta-lnk">Request the Range →</a></div>
+    <div class="cta-card"><h3>Press / Collaborations</h3><p>Media enquiries, content partnerships, brand collaborations, and IP licensing conversations welcome.</p><a href="mailto:hello@orizon-hub.com" class="cta-lnk">Contact Us →</a></div>
+    <div class="cta-card"><h3>Careers</h3><p>Orizon is a growing team. If you're passionate about gaming accessories and retail, we'd like to hear from you.</p><a href="mailto:hello@orizon-hub.com" class="cta-lnk">See Opportunities →</a></div>
+  </div>
+  <a href="mailto:hello@orizon-hub.com" class="btn-cta">Let's Talk</a>
+</section>
+
+<!-- ══ FAQ ════════════════════════════════ -->
+<section id="faq">
+  <div class="fq-in">
+    <div class="fq-hd fade-up"><div class="pear-tag">Frequently Asked Questions</div><h2>FAQ</h2></div>
+    <div class="fq-item" id="fq1"><button class="fq-btn" aria-expanded="false" onclick="fq('fq1')"><span>What is Orizon and what do you do?</span><span class="fq-icon" aria-hidden="true">+</span></button><div class="fq-body"><p>Orizon develops and scales gaming accessory ranges through distribution and retail partnerships—through owned brands and partner programs for IP owners. We operate across Europe and support international expansion with selected partners.</p></div></div>
+    <div class="fq-item" id="fq2"><button class="fq-btn" aria-expanded="false" onclick="fq('fq2')"><span>Do you only sell licensed products?</span><span class="fq-icon" aria-hidden="true">+</span></button><div class="fq-body"><p>No. Our brands are built on strong core (non-licensed) accessory ranges. Licensed editions are selective additions that complement the core—chosen for genuine retail value, not opportunistic branding.</p></div></div>
+    <div class="fq-item" id="fq3"><button class="fq-btn" aria-expanded="false" onclick="fq('fq3')"><span>Do you operate in Europe only, or do you support international markets?</span><span class="fq-icon" aria-hidden="true">+</span></button><div class="fq-body"><p>Europe is our core region, and we support international expansion with selected partners. Our distribution infrastructure is built for European compliance, but our partner program enables market entry beyond Europe for the right brands.</p></div></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ═════════════════════════════ -->
+<footer id="footer">
+  <div class="ft-cols">
+    <div>
+      <img class="ft-logo" src="https://orizon-hub.com/wp-content/uploads/2024/11/Orizon_white_transparent.png" alt="Orizon">
+      <p class="ft-about">Let's work together to create something exceptional—something that inspires, connects, and lasts.</p>
+      <a href="mailto:hello@orizon-hub.com" class="ft-email">hello@orizon-hub.com</a>
+    </div>
+    <div>
+      <div class="ft-hd">Quick Links</div>
+      <ul class="ft-links"><li><a href="#engines">What we do</a></li><li><a href="#dragonshock">Brands</a></li><li><a href="#ranges">Ranges</a></li><li><a href="#engines">Partner Programs</a></li><li><a href="#footer">About</a></li><li><a href="#cta">Contact</a></li></ul>
+    </div>
+    <div>
+      <div class="ft-hd">Legal</div>
+      <ul class="ft-links"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms &amp; Conditions</a></li></ul>
+      <a href="https://linkedin.com" class="ft-li" style="display:inline-block;margin-top:18px" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    </div>
+  </div>
+  <div class="ft-btm">
+    <p class="ft-copy">©2025 Orizon – Crafting the Future of Entertainment</p>
+    <a href="https://linkedin.com" class="ft-li" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+  </div>
+</footer>
+
+<!-- ══ THREE.JS (ES Module + OBJLoader via importmap) ══ -->
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+import { MTLLoader } from 'three/addons/loaders/MTLLoader.js';
+
+const noAnim = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ── PRELOADER ─────────────────────────── */
+(function(){
+  const logo=document.getElementById('l-logo'),fill=document.getElementById('l-fill'),pct=document.getElementById('l-pct'),el=document.getElementById('loader');
+  setTimeout(()=>logo.classList.add('show'),80);
+  if(noAnim){el.classList.add('gone');boot();return;}
+  let p=0;
+  const set=v=>{p=v;fill.style.width=v+'%';pct.textContent=Math.round(v)+'%';};
+  let id=setInterval(()=>{set(p+3);if(p>=60){clearInterval(id);ph2();}},40);
+  function ph2(){id=setInterval(()=>{set(p+1);if(p>=90){clearInterval(id);ph3();}},26);}
+  function ph3(){id=setInterval(()=>{set(Math.min(p+2,100));if(p>=100){clearInterval(id);setTimeout(()=>{el.classList.add('gone');boot();},320);}},14);}
+})();
+
+/* ── BOOT ──────────────────────────────── */
+function boot(){
+  setTimeout(()=>document.getElementById('nav').classList.add('show'),460);
+  if(!noAnim) setTimeout(()=>document.getElementById('h-copy').classList.add('in'),260);
+  else document.getElementById('h-copy').classList.add('in');
+  gsap.registerPlugin(ScrollTrigger);
+  initFades(); initEngines(); initCounters();
+  initHero3D(); initStatsParticles(); initProcess();
+  initBrandTabs();
+}
+
+/* ── BRAND IMAGE TABS ───────────────────── */
+function initBrandTabs(){
+  [
+    {slides:'ds-slides', dots:'ds-dots'},
+    {slides:'eg-slides', dots:'eg-dots'}
+  ].forEach(({slides:sId, dots:dId})=>{
+    const wrap   = document.getElementById(sId);
+    const dotsEl = document.getElementById(dId);
+    if(!wrap || !dotsEl) return;
+    const slides = wrap.querySelectorAll('.b-slide');
+    const dots   = dotsEl.querySelectorAll('.b-dot');
+    let cur = 0, timer;
+
+    function goTo(n){
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur = (n + slides.length) % slides.length;
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+    }
+    function startTimer(){
+      clearInterval(timer);
+      timer = setInterval(()=> goTo(cur + 1), 3200);
+    }
+    dots.forEach(dot =>{
+      dot.addEventListener('click', ()=>{ goTo(+dot.dataset.idx); startTimer(); });
+    });
+    startTimer();
+  });
+}
+
+/* ── NAV ───────────────────────────────── */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('stuck',scrollY>60),{passive:true});
+
+/* ── FADE-UPs ──────────────────────────── */
+function initFades(){
+  if(noAnim){document.querySelectorAll('.fade-up').forEach(e=>e.classList.add('in'));return;}
+  const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.fade-up').forEach(e=>o.observe(e));
+}
+
+/* ── ENGINE PANELS ─────────────────────── */
+function initEngines(){
+  if(noAnim){
+    ['ep-l','ep-r'].forEach(id=>{document.getElementById(id).style.transform='none';});
+    document.getElementById('ep-div').classList.add('on'); return;
+  }
+  const o=new IntersectionObserver(([e])=>{
+    if(e.isIntersecting){
+      gsap.to('#ep-l',{x:0,duration:.8,ease:'power3.out'});
+      gsap.to('#ep-r',{x:0,duration:.8,ease:'power3.out',delay:.08});
+      setTimeout(()=>document.getElementById('ep-div').classList.add('on'),660);
+      o.disconnect();
+    }
+  },{threshold:.25});
+  o.observe(document.querySelector('.eng-panels'));
+}
+
+/* ── COUNTERS ──────────────────────────── */
+function initCounters(){
+  const o=new IntersectionObserver(([e])=>{
+    if(!e.isIntersecting) return; o.disconnect();
+    document.querySelectorAll('.st-n').forEach(el=>{
+      const t=+el.dataset.t,s=el.dataset.s;
+      if(noAnim){el.textContent=t+s;return;}
+      const dur=2200,st=performance.now();
+      const tick=n=>{const p=Math.min((n-st)/dur,1),ease=1-Math.pow(1-p,3);el.textContent=Math.round(ease*t)+s;if(p<1)requestAnimationFrame(tick);};
+      requestAnimationFrame(tick);
+    });
+  },{threshold:.4});
+  o.observe(document.getElementById('stats'));
+}
+
+/* ══ THREE.JS HERO 3D CONTROLLER ══════════
+   Loads ./Xbox one controller/Controller.obj via OBJLoader + MTLLoader.
+   Procedural geometry shown immediately while OBJ loads in background.
+   Falls back to procedural if OBJ cannot be fetched (e.g. file:// protocol).
+   ► To load the real model: serve via HTTP (VS Code Live Server, or
+     python -m http.server 8000, then open http://localhost:8000)
+════════════════════════════════════════ */
+async function initHero3D(){
+  const bg = document.getElementById('hero-img-bg');
+  if(bg) bg.style.opacity = '0';
+
+  const canvas = document.getElementById('hero-canvas');
+  const W = Math.round(window.innerWidth * 0.5);
+  const H = window.innerHeight;
+
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.setSize(W, H);
+  renderer.setClearColor(0x000000, 0);
+
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(42, W/H, 0.1, 100);
+  cam.position.set(0, 0.2, 5.5);
+
+  /* ── Lights — natural studio setup ─ */
+  scene.add(new THREE.AmbientLight(0xfff8f0, 1.2));           // warm ambient (room light)
+  const key = new THREE.DirectionalLight(0xfff5e8, 2.8);      // warm key from top-left
+  key.position.set(-3, 5, 4); scene.add(key);
+  const fill = new THREE.DirectionalLight(0xd0e8ff, 1.0);     // cool fill from right
+  fill.position.set(4, 1, 2); scene.add(fill);
+  const rim = new THREE.DirectionalLight(0xffffff, 0.6);      // back-rim for edge definition
+  rim.position.set(0, -2, -3); scene.add(rim);
+
+  /* ── Materials ──────────────────── */
+  // PlayStation materials — no emissive on solid parts (real plastic doesn't glow)
+  const matBody   = new THREE.MeshStandardMaterial({color:0x181818, roughness:0.55, metalness:0.05}); // matte ABS plastic
+  const matMetal  = new THREE.MeshStandardMaterial({color:0x8898a8, roughness:0.2,  metalness:0.9});  // brushed metal
+  const matAccent = new THREE.MeshStandardMaterial({color:0x0070cc, roughness:0.15, metalness:0.6,   emissive:new THREE.Color(0x003870), emissiveIntensity:0.5}); // PS light-bar — just a hint of glow
+  const matThumb  = new THREE.MeshStandardMaterial({color:0x101010, roughness:0.75, metalness:0.0});  // rubber texture
+  const matPear   = matAccent;
+  const matBtn    = hex => new THREE.MeshStandardMaterial({color:hex, roughness:0.35, metalness:0.1}); // painted plastic — no emissive
+
+  /* ── Procedural controller (shown immediately) ── */
+  const ctrl = new THREE.Group();
+  let home = null, homeInner = null;
+
+  (function buildProcedural(){
+    // Main body slab
+    ctrl.add(new THREE.Mesh(new THREE.BoxGeometry(2.8, 1.3, 0.52), matBody));
+    // Crown
+    const crown = new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.3, 0.48), matBody);
+    crown.position.set(0, 0.78, 0); ctrl.add(crown);
+    // Grips
+    const lGrip = new THREE.Mesh(new THREE.BoxGeometry(0.72, 1.05, 0.46), matBody);
+    lGrip.position.set(-0.82,-0.95,0); lGrip.rotation.z=0.12; ctrl.add(lGrip);
+    const rGrip = new THREE.Mesh(new THREE.BoxGeometry(0.72, 1.05, 0.46), matBody);
+    rGrip.position.set(0.82,-0.95,0); rGrip.rotation.z=-0.12; ctrl.add(rGrip);
+    [-1,1].forEach(s=>{
+      const cap=new THREE.Mesh(new THREE.CylinderGeometry(0.36,0.36,0.46,20),matBody);
+      cap.rotation.x=Math.PI/2; cap.position.set(s*0.82,-1.47,0); ctrl.add(cap);
+    });
+    // Shoulders
+    [-1,1].forEach(s=>{
+      const b=new THREE.Mesh(new THREE.BoxGeometry(0.96,0.22,0.28),matBody);
+      b.position.set(s*0.92,0.74,0.1); b.rotation.z=s*-0.08; ctrl.add(b);
+      const tr=new THREE.Mesh(new THREE.BoxGeometry(0.78,0.16,0.36),matBody);
+      tr.position.set(s*0.96,0.92,-0.06); tr.rotation.z=s*-0.08; ctrl.add(tr);
+    });
+    // Thumbsticks
+    const lTB=new THREE.Mesh(new THREE.CylinderGeometry(0.26,0.24,0.1,24),matBody);
+    lTB.position.set(-0.65,0,0.28); ctrl.add(lTB);
+    const lT=new THREE.Mesh(new THREE.CylinderGeometry(0.23,0.23,0.14,24),matThumb);
+    lT.position.set(-0.65,0.1,0.28); ctrl.add(lT);
+    const rTB=new THREE.Mesh(new THREE.CylinderGeometry(0.26,0.24,0.1,24),matBody);
+    rTB.position.set(0.36,-0.38,0.28); ctrl.add(rTB);
+    const rT=new THREE.Mesh(new THREE.CylinderGeometry(0.23,0.23,0.14,24),matThumb);
+    rT.position.set(0.36,-0.28,0.28); ctrl.add(rT);
+    // D-pad
+    const dpH=new THREE.Mesh(new THREE.BoxGeometry(0.52,0.18,0.08),matBody);
+    dpH.position.set(-0.62,-0.38,0.3); ctrl.add(dpH);
+    const dpV=new THREE.Mesh(new THREE.BoxGeometry(0.18,0.52,0.08),matBody);
+    dpV.position.set(-0.62,-0.38,0.3); ctrl.add(dpV);
+    // Face buttons
+    // PS face buttons: Triangle(top), Square(left), Circle(right), Cross(bottom)
+    [{x:0.72,y:0.26,c:0x1DB389},{x:0.55,y:0.08,c:0xE83FA3},{x:0.89,y:0.08,c:0xE4003A},{x:0.72,y:-0.1,c:0x003DA5}].forEach(b=>{
+      const bm=new THREE.Mesh(new THREE.SphereGeometry(0.12,14,10),matBtn(b.c));
+      bm.position.set(b.x,b.y,0.3); ctrl.add(bm);
+    });
+    // Home button (glowing cyan)
+    home=new THREE.Mesh(new THREE.CylinderGeometry(0.16,0.16,0.08,20),matAccent);
+    home.rotation.x=Math.PI/2; home.position.set(0,0.18,0.3); ctrl.add(home);
+    homeInner=new THREE.Mesh(new THREE.TorusGeometry(0.1,0.025,8,20),matAccent);
+    homeInner.position.set(0,0.18,0.34); ctrl.add(homeInner);
+    // Menu buttons
+    [-0.22,0.22].forEach(x=>{
+      const btn=new THREE.Mesh(new THREE.BoxGeometry(0.18,0.1,0.06),matBody);
+      btn.position.set(x,0.28,0.3); ctrl.add(btn);
+    });
+    // Light bar
+    const bar=new THREE.Mesh(new THREE.BoxGeometry(1.4,0.06,0.04),matAccent);
+    bar.position.set(0,0.68,0.27); ctrl.add(bar);
+    // Pear accent
+    const pl=new THREE.Mesh(new THREE.BoxGeometry(0.8,0.04,0.04),matPear);
+    pl.position.set(0,-0.66,0.27); ctrl.add(pl);
+    // Logo disc
+    const ld=new THREE.Mesh(new THREE.CylinderGeometry(0.11,0.11,0.06,20),matPear);
+    ld.rotation.x=Math.PI/2; ld.position.set(0,0.18,0.35); ctrl.add(ld);
+  })();
+
+  scene.add(ctrl);
+  ctrl.scale.setScalar(0.88);
+
+  /* ── Orbit Rings ─────────────────────────────────────────
+     Ring 1 → brand blue #1AA7EC   10 dots, clockwise
+     Ring 2 → brand lime #C2E812    7 dots, counter-clockwise
+  ──────────────────────────────────────────────────────── */
+  const matRing1 = new THREE.MeshStandardMaterial({color:0x1AA7EC,emissive:0x1AA7EC,emissiveIntensity:0.1,roughness:0.3,metalness:0.5,transparent:true,opacity:0.35});
+  const matDot1  = new THREE.MeshStandardMaterial({color:0x1AA7EC,emissive:0x1AA7EC,emissiveIntensity:1.2,roughness:0.1,metalness:0.4,transparent:true,opacity:0.65});
+  const ringGroup1 = new THREE.Group();
+  ringGroup1.position.set(0.2, -0.3, -1.1);
+  ringGroup1.rotation.x = 0.38; ringGroup1.rotation.z = 0.98;
+  scene.add(ringGroup1);
+  ringGroup1.add(new THREE.Mesh(new THREE.TorusGeometry(2.15,0.007,8,128),matRing1));
+  const dotPivot1 = new THREE.Group(); ringGroup1.add(dotPivot1);
+  for(let i=0;i<10;i++){const a=(i/10)*Math.PI*2;const d=new THREE.Mesh(new THREE.SphereGeometry(0.048,8,8),matDot1);d.position.set(2.15*Math.cos(a),2.15*Math.sin(a),0);dotPivot1.add(d);}
+
+  const matRing2 = new THREE.MeshStandardMaterial({color:0xC2E812,emissive:0xC2E812,emissiveIntensity:0.1,roughness:0.3,metalness:0.5,transparent:true,opacity:0.35});
+  const matDot2  = new THREE.MeshStandardMaterial({color:0xC2E812,emissive:0xC2E812,emissiveIntensity:1.2,roughness:0.1,metalness:0.4,transparent:true,opacity:0.65});
+  const ringGroup2 = new THREE.Group();
+  ringGroup2.position.set(0.1,-0.1,-1.5);
+  ringGroup2.rotation.x = -0.28; ringGroup2.rotation.z = -0.32;
+  scene.add(ringGroup2);
+  ringGroup2.add(new THREE.Mesh(new THREE.TorusGeometry(1.62,0.007,8,100),matRing2));
+  const dotPivot2 = new THREE.Group(); ringGroup2.add(dotPivot2);
+  for(let i=0;i<7;i++){const a=(i/7)*Math.PI*2;const d=new THREE.Mesh(new THREE.SphereGeometry(0.048,8,8),matDot2);d.position.set(1.62*Math.cos(a),1.62*Math.sin(a),0);dotPivot2.add(d);}
+
+  /* ── Mouse Parallax ─────────────── */
+  let tx=0, ty=0, cx=0, cy=0;
+  window.addEventListener('mousemove', e=>{
+    if(noAnim) return;
+    tx = (e.clientX/innerWidth  - 0.5) *  0.7;
+    ty = (e.clientY/innerHeight - 0.5) * -0.45;
+  }, {passive:true});
+
+  /* ── Scroll exit ────────────────── */
+  if(!noAnim){
+    ScrollTrigger.create({
+      trigger:'#hero', start:'top top', end:'bottom top', scrub:1,
+      onUpdate(self){
+        ctrl.position.y = self.progress * 1.2;
+        ctrl.rotation.z = self.progress * 0.4;
+        renderer.domElement.style.opacity = 1 - self.progress * 0.7;
+      }
+    });
+  }
+
+  /* ── Resize ─────────────────────── */
+  window.addEventListener('resize', ()=>{
+    const nW=Math.round(window.innerWidth*0.5), nH=window.innerHeight;
+    cam.aspect=nW/nH; cam.updateProjectionMatrix(); renderer.setSize(nW,nH);
+  });
+
+  /* ── Render loop (starts immediately with procedural) ── */
+  const clock = new THREE.Clock();
+  (function draw(){
+    requestAnimationFrame(draw);
+    const t = clock.getElapsedTime();
+    if(!noAnim){
+      cx += (tx - cx) * 0.055; cy += (ty - cy) * 0.055;
+      ctrl.rotation.y = cx + t * 0.38;
+      ctrl.rotation.x = cy + Math.sin(t * 0.4) * 0.04;
+      ctrl.position.y = Math.sin(t * 0.5) * 0.08;
+      if(home)      home.material.emissiveIntensity      = 0.4 + Math.sin(t * 2) * 0.3;
+      if(homeInner) homeInner.material.emissiveIntensity = 0.3 + Math.sin(t * 2 + 0.5) * 0.25;
+      dotPivot1.rotation.z =  t * 0.48;   // blue dots orbit clockwise
+      dotPivot2.rotation.z = -t * 0.62;   // lime dots counter-clockwise
+    }
+    renderer.render(scene, cam);
+  })();
+
+  /* ── Load real OBJ model in background ──────────────────
+     Requires HTTP server (not file://). On success the
+     procedural children are replaced with the real model.
+  ─────────────────────────────────────────────────────── */
+  try {
+    // Load MTL first so OBJLoader can resolve materials
+    const mtlLoader = new MTLLoader();
+    mtlLoader.setPath('./Xbox one controller/');
+    const materials = await new Promise((res, rej) =>
+      mtlLoader.load('Controller.mtl', res, undefined, rej)
+    );
+    materials.preload();
+
+    const objLoader = new OBJLoader();
+    objLoader.setMaterials(materials);
+    const obj = await new Promise((res, rej) =>
+      objLoader.load('./Xbox one controller/Controller.obj', res, undefined, rej)
+    );
+
+    // Map MTL material names → PlayStation colours
+    const psMats = {
+      'Shiny black':              new THREE.MeshStandardMaterial({color:0x111116, roughness:0.25, metalness:0.75}),
+      'Logo black':               new THREE.MeshStandardMaterial({color:0x080810, roughness:0.3,  metalness:0.5}),
+      'Metal bits':               new THREE.MeshStandardMaterial({color:0x8898a8, roughness:0.15, metalness:0.95}),
+      'Analogs':                  new THREE.MeshStandardMaterial({color:0x0a0a0e, roughness:0.55, metalness:0.3}),
+      'Analogs bump':             new THREE.MeshStandardMaterial({color:0x0a0a0e, roughness:0.6,  metalness:0.2}),
+      'Dull white':               new THREE.MeshStandardMaterial({color:0xd0d0d8, roughness:0.4,  metalness:0.2}),
+      'Shiny white':              new THREE.MeshStandardMaterial({color:0xe8e8f0, roughness:0.15, metalness:0.55}),
+      'Front buttons transparent':new THREE.MeshStandardMaterial({color:0x111116, roughness:0.2,  metalness:0.6, transparent:true, opacity:0.85}),
+      'Front button inserts':     new THREE.MeshStandardMaterial({color:0x0a0a14, roughness:0.3,  metalness:0.5}),
+      // PS face-button colours — painted plastic, no emissive
+      'Yellow': new THREE.MeshStandardMaterial({color:0xE83FA3, roughness:0.35, metalness:0.05}), // Square pink
+      'Blue':   new THREE.MeshStandardMaterial({color:0x2255CC, roughness:0.35, metalness:0.05}), // Cross blue
+      'Green':  new THREE.MeshStandardMaterial({color:0x1DB389, roughness:0.35, metalness:0.05}), // Triangle teal
+      'Red':    new THREE.MeshStandardMaterial({color:0xE4003A, roughness:0.35, metalness:0.05}), // Circle red
+    };
+    const fallbackMat = new THREE.MeshStandardMaterial({color:0x111116, roughness:0.35, metalness:0.65});
+    obj.traverse(child => {
+      if(!child.isMesh) return;
+      const name = child.material?.name || '';
+      child.material = psMats[name] || fallbackMat;
+    });
+
+    // Center and scale to fill the hero column nicely
+    const box3  = new THREE.Box3().setFromObject(obj);
+    const center = new THREE.Vector3();
+    const size   = new THREE.Vector3();
+    box3.getCenter(center);
+    box3.getSize(size);
+    obj.position.sub(center);                                   // center at origin
+    obj.scale.setScalar(3.2 / Math.max(size.x, size.y, size.z)); // fit to ~3.2 units
+    // Rotate −90° so face (which points up in .obj) faces the camera, plus small natural tilt
+    obj.rotation.x = -Math.PI / 2 + 0.28;
+
+    // Swap procedural geometry → real model (preserve ctrl Group transforms)
+    while(ctrl.children.length) ctrl.remove(ctrl.children[0]);
+    home = null; homeInner = null;
+    ctrl.add(obj);
+    ctrl.scale.setScalar(1.0);
+    console.log('%c✓ Controller.obj loaded — real Xbox One controller active', 'color:#1AA7EC');
+  } catch(err) {
+    // Keep procedural controller — OBJ needs HTTP to load
+    console.info('%cℹ OBJ load skipped. To see the real 3D model serve via HTTP:\n  python -m http.server 8000  (then open http://localhost:8000)', 'color:#C2E812');
+  }
+}
+
+/* ── STATS PARTICLES ───────────────────── */
+function initStatsParticles(){
+  const canvas=document.getElementById('sc');
+  try{
+    const sec=document.getElementById('stats');
+    const W=sec.offsetWidth,H=sec.offsetHeight;
+    const r=new THREE.WebGLRenderer({canvas,alpha:true,antialias:false});
+    r.setPixelRatio(1);r.setSize(W,H);r.setClearColor(0,0);
+    const scene=new THREE.Scene(), cam=new THREE.PerspectiveCamera(60,W/H,.1,100);
+    cam.position.z=5;
+    const n=180,pos=new Float32Array(n*3);
+    for(let i=0;i<n;i++){pos[i*3]=(Math.random()-.5)*14;pos[i*3+1]=(Math.random()-.5)*7;pos[i*3+2]=(Math.random()-.5)*4;}
+    const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    const pts=new THREE.Points(g,new THREE.PointsMaterial({color:0xffffff,size:.05}));scene.add(pts);
+    (function loop(){requestAnimationFrame(loop);if(!noAnim){const a=pts.geometry.attributes.position.array;for(let i=0;i<n;i++){a[i*3+1]+=.0007;if(a[i*3+1]>3.5)a[i*3+1]=-3.5;}pts.geometry.attributes.position.needsUpdate=true;}r.render(scene,cam);})();
+  }catch(e){}
+}
+
+/* ── HORIZONTAL PROCESS ────────────────── */
+function initProcess(){
+  if(noAnim) return;
+  const track=document.getElementById('pp-track'),wrap=document.getElementById('pp-wrap');
+  gsap.to(track,{
+    x:()=>-(track.scrollWidth-innerWidth), ease:'none',
+    scrollTrigger:{
+      trigger:wrap, start:'top top', end:()=>`+=${track.scrollWidth-innerWidth}`,
+      pin:true, scrub:1, invalidateOnRefresh:true,
+      onUpdate(self){
+        document.getElementById('pp-fill').style.width=(self.progress*100)+'%';
+        document.getElementById('pp-cur').textContent=String(Math.min(Math.floor(self.progress*4)+1,4)).padStart(2,'0');
+      }
+    }
+  });
+}
+
+/* ── FAQ ───────────────────────────────── */
+function fq(id){
+  const el=document.getElementById(id),open=el.classList.contains('open');
+  document.querySelectorAll('.fq-item.open').forEach(e=>{e.classList.remove('open');e.querySelector('.fq-btn').setAttribute('aria-expanded','false');});
+  if(!open){el.classList.add('open');el.querySelector('.fq-btn').setAttribute('aria-expanded','true');}
+}
+
+document.fonts.ready.then(()=>{ if(typeof ScrollTrigger!=='undefined') ScrollTrigger.refresh(); });
+
+// Expose fq() globally — inline onclick="fq(...)" in FAQ HTML needs this
+window.fq = fq;
+</script>
+</body>
+</html>
