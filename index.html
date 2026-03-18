@@ -171,11 +171,10 @@
 
   /* ══ PROCESS ══════════════════════════════ */
   /* NOTE: no overflow:hidden here — GSAP pin creates a spacer div that must not be clipped */
-  #process{position:relative}
+ 
   .pp-wrap{position:relative}
   .pp-track{display:flex;width:400vw}
-  .pp-panel{width:100vw;height:100vh;min-height:500px;display:flex;align-items:center;padding:80px 96px;position:relative;background:var(--black);background-image:var(--chain);overflow:hidden}
-  .pp-bg-num{position:absolute;right:56px;bottom:32px;font-family:var(--fh);font-size:180px;color:rgba(255,255,255,.025);line-height:1;user-select:none;pointer-events:none}
+  .pp-panel{width:100vw;height:100vh;min-height:500px;display:flex;align-items:center;padding:80px 96px;position:relative;background:var(--black);background-image:var(--chain);}
   .pp-c{max-width:500px;position:relative;z-index:1}
   .pp-tag{font-family:var(--fh);font-size:9px;color:var(--cyan);text-transform:uppercase;letter-spacing:.2em;margin-bottom:12px}
   .pp-title{font-family:var(--fh);font-size:clamp(28px,3vw,42px);text-transform:uppercase;margin-bottom:16px;line-height:1.1}
@@ -187,7 +186,7 @@
   .pp-ctr b{color:#fff}
 
   /* ══ BRAND SECTIONS ══════════════════════ */
-  .brand-sec{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden}
+  .brand-sec{min-height:10vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden}
   #dragonshock{background:var(--black);background-image:var(--chain)}
   #egogear{background:linear-gradient(160deg,#1E2F96 0%,#08080D 55%);background-image:var(--chain)}
   .b-copy{position:relative;z-index:2;padding:72px 56px}
@@ -452,81 +451,7 @@
   <a href="#cta" class="btn-pear fade-up">Request the Line-Up</a>
 </section>
 
-<!-- ══ PROCESS ════════════════════════════ -->
-<section id="process">
-  <div class="pp-wrap" id="pp-wrap">
-    <div class="pp-prog"><div class="pp-prog-fill" id="pp-fill"></div></div>
-    <div class="pp-ctr"><b id="pp-cur">01</b> / 04</div>
-    <div class="pp-track" id="pp-track">
 
-      <div class="pp-panel"><div class="pp-bg-num" aria-hidden="true">01</div><div class="pp-c">
-        <div class="pp-tag">Step 01 / 04</div>
-        <h2 class="pp-title">Range Strategy</h2>
-        <p class="pp-body">Assortment design, pricing ladder, channel fit. We build the commercial architecture before a single unit is produced.</p>
-        <div class="pp-svg"><svg width="160" height="100" viewBox="0 0 160 100" fill="none" aria-hidden="true">
-          <rect x="4" y="4" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".9"/>
-          <rect x="40" y="4" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".65"/>
-          <rect x="76" y="4" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".4"/>
-          <rect x="112" y="4" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".18"/>
-          <rect x="4" y="40" width="28" height="28" rx="3" stroke="#C2E812" stroke-width="1.5" opacity=".9"/>
-          <rect x="40" y="40" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".6"/>
-          <rect x="76" y="40" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".35"/>
-          <rect x="112" y="40" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".15"/>
-          <rect x="4" y="76" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".3"/>
-          <rect x="40" y="76" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".2"/>
-          <rect x="76" y="76" width="28" height="28" rx="3" stroke="#C2E812" stroke-width="1.5" opacity=".55"/>
-          <rect x="112" y="76" width="28" height="28" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".1"/>
-        </svg></div>
-      </div></div>
-
-      <div class="pp-panel"><div class="pp-bg-num" aria-hidden="true">02</div><div class="pp-c">
-        <div class="pp-tag">Step 02 / 04</div>
-        <h2 class="pp-title">Product, Packaging & Compliance</h2>
-        <p class="pp-body">Design, sourcing, QA, retail-ready packaging. Every unit arrives shelf-ready with full compliance documentation.</p>
-        <div class="pp-svg"><svg width="160" height="100" viewBox="0 0 160 100" fill="none" aria-hidden="true">
-          <rect x="16" y="82" width="128" height="16" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".22"/>
-          <rect x="26" y="64" width="108" height="16" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".42"/>
-          <rect x="36" y="46" width="88" height="16" rx="3" stroke="#C2E812" stroke-width="1.5" opacity=".68"/>
-          <rect x="46" y="28" width="68" height="16" rx="3" stroke="#1AA7EC" stroke-width="1.5" opacity=".82"/>
-          <rect x="56" y="10" width="48" height="16" rx="3" fill="rgba(26,167,236,.1)" stroke="#1AA7EC" stroke-width="1.5"/>
-        </svg></div>
-      </div></div>
-
-      <div class="pp-panel"><div class="pp-bg-num" aria-hidden="true">03</div><div class="pp-c">
-        <div class="pp-tag">Step 03 / 04</div>
-        <h2 class="pp-title">Retail Rollout</h2>
-        <p class="pp-body">Distribution partners, key retailers, launch calendars and assets. We open the doors and make the launch land.</p>
-        <div class="pp-svg"><svg width="200" height="100" viewBox="0 0 200 100" fill="none" aria-hidden="true">
-          <circle cx="18" cy="50" r="4" fill="#1AA7EC" opacity=".8"/>
-          <circle cx="68" cy="22" r="4" fill="#C2E812" opacity=".8"/>
-          <circle cx="100" cy="64" r="6" fill="#1AA7EC"/>
-          <circle cx="148" cy="32" r="4" fill="#1AA7EC" opacity=".8"/>
-          <circle cx="186" cy="60" r="4" fill="#C2E812" opacity=".8"/>
-          <circle cx="50" cy="82" r="3" fill="#1AA7EC" opacity=".5"/>
-          <line x1="18" y1="50" x2="68" y2="22" stroke="#1AA7EC" stroke-width="1" stroke-dasharray="4 3" opacity=".32"/>
-          <line x1="68" y1="22" x2="100" y2="64" stroke="#1AA7EC" stroke-width="1" stroke-dasharray="4 3" opacity=".32"/>
-          <line x1="100" y1="64" x2="148" y2="32" stroke="#1AA7EC" stroke-width="1.5" opacity=".58"/>
-          <line x1="148" y1="32" x2="186" y2="60" stroke="#1AA7EC" stroke-width="1" stroke-dasharray="4 3" opacity=".32"/>
-          <line x1="18" y1="50" x2="50" y2="82" stroke="#1AA7EC" stroke-width="1" stroke-dasharray="4 3" opacity=".22"/>
-          <line x1="50" y1="82" x2="100" y2="64" stroke="#1AA7EC" stroke-width="1" stroke-dasharray="4 3" opacity=".22"/>
-        </svg></div>
-      </div></div>
-
-      <div class="pp-panel"><div class="pp-bg-num" aria-hidden="true">04</div><div class="pp-c">
-        <div class="pp-tag">Step 04 / 04</div>
-        <h2 class="pp-title">Always-On Execution</h2>
-        <p class="pp-body">Replenishment, promo planning, retail performance support. We stay in the game long after launch day.</p>
-        <div class="pp-svg"><svg width="120" height="120" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-          <circle cx="60" cy="60" r="42" stroke="rgba(255,255,255,.04)" stroke-width="10"/>
-          <path d="M60 18 A42 42 0 1 1 18 60" stroke="#1AA7EC" stroke-width="2.5" stroke-linecap="round" opacity=".9"/>
-          <path d="M18 60 A42 42 0 0 1 42 23" stroke="#C2E812" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
-          <polygon points="60,11 65,21 55,21" fill="#1AA7EC" opacity=".9"/>
-        </svg></div>
-      </div></div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ══ DRAGONSHOCK ════════════════════════ -->
 <section id="dragonshock" class="brand-sec">
@@ -679,7 +604,7 @@ function boot(){
   else document.getElementById('h-copy').classList.add('in');
   gsap.registerPlugin(ScrollTrigger);
   initFades(); initEngines(); initCounters();
-  initHero3D(); initStatsParticles(); initProcess();
+  initHero3D(); initStatsParticles();
   initBrandTabs();
 }
 
@@ -1020,22 +945,7 @@ function initStatsParticles(){
   }catch(e){}
 }
 
-/* ── HORIZONTAL PROCESS ────────────────── */
-function initProcess(){
-  if(noAnim) return;
-  const track=document.getElementById('pp-track'),wrap=document.getElementById('pp-wrap');
-  gsap.to(track,{
-    x:()=>-(track.scrollWidth-innerWidth), ease:'none',
-    scrollTrigger:{
-      trigger:wrap, start:'top top', end:()=>`+=${track.scrollWidth-innerWidth}`,
-      pin:true, scrub:1, invalidateOnRefresh:true,
-      onUpdate(self){
-        document.getElementById('pp-fill').style.width=(self.progress*100)+'%';
-        document.getElementById('pp-cur').textContent=String(Math.min(Math.floor(self.progress*4)+1,4)).padStart(2,'0');
-      }
-    }
-  });
-}
+
 
 /* ── FAQ ───────────────────────────────── */
 function fq(id){
